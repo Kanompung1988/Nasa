@@ -5,8 +5,7 @@ using TMPro;  // นำเข้า TextMeshPro
 public class Character : MonoBehaviour
 {
     public int level = 1;
-    public Image characterImage;  // อ้างอิงถึงตัวละครที่จะแสดงใน UI
-    public Sprite eggSprite, childSprite, teenSprite, adultSprite;  // Sprite แต่ละเฟส
+    public GameObject characterImage;  // อ้างอิงถึงตัวละครหลักที่มีลูกย่อย
     public TextMeshProUGUI levelText;  // ใช้ TextMeshPro แทน Text ปกติ
     public Slider healthBar, hungerBar;
 
@@ -15,47 +14,54 @@ public class Character : MonoBehaviour
     void Start()
     {
         UpdateCharacter();
-        UpdateUI();
+        UpdateUI();  // อัปเดต UI ตอนเริ่มต้นเกม
     }
 
     void UpdateCharacter()
     {
-        // เปลี่ยนเฟสตามเลเวล
+        // ปิดลูกของ Character Image ทั้งหมดก่อน
+        foreach (Transform child in characterImage.transform)
+        {
+            child.gameObject.SetActive(false);  // ปิดลูกย่อยทั้งหมดก่อน
+        }
+
+        // เปลี่ยน Sprite หรือ GameObject ตามเลเวล
         if (level < 15)
         {
-            characterImage.sprite = eggSprite;
+            characterImage.transform.Find("1").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 1
         }
         else if (level < 30)
         {
-            characterImage.sprite = childSprite;
+            characterImage.transform.Find("2").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 2
         }
         else if (level < 45)
         {
-            characterImage.sprite = teenSprite;
+            characterImage.transform.Find("3").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 3
         }
         else
         {
-            characterImage.sprite = adultSprite;
+            characterImage.transform.Find("4").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 4
         }
     }
 
     public void GainLevel(int amount)
     {
-        level += amount;
-        UpdateCharacter();
-        UpdateUI();
+        level += amount;  // เพิ่มเลเวลตามค่าที่กำหนด
+        UpdateCharacter();  // อัปเดตตัวละครตามเลเวลใหม่
+        UpdateUI();  // อัปเดต UI แสดงผลเลเวลและค่าต่าง ๆ
     }
 
     void UpdateUI()
     {
-        levelText.text = "Level: " + level;  // แสดงระดับเลเวลด้วย TextMeshPro
-        healthBar.value = healthBar.maxValue;  // ตั้งค่าให้เต็มหลอด
-        hungerBar.value = hungerBar.maxValue;
+        levelText.text = "Lv: " + level;  // อัปเดตข้อความของ TextMeshPro เพื่อแสดงเลเวลใหม่
+        healthBar.value = healthBar.maxValue;  // ตั้งค่าให้เต็มหลอดพลังชีวิต
+        hungerBar.value = hungerBar.maxValue;  // ตั้งค่าให้เต็มหลอดความหิว
     }
 
     void OnMouseDown()
     {
         // เรียกใช้ DialogManager เพื่อแสดงข้อความเมื่อคลิกที่ตัวละคร
         dialogManager.ShowDialogForDuration("Hello! Let's talk.", 3f);
+        GainLevel(1);  // เมื่อคลิกให้เพิ่มเลเวล 1
     }
 }
