@@ -51,10 +51,9 @@ public class Character : MonoBehaviour
         UpdateUI();  // อัปเดต UI แสดงผลเลเวลและค่าต่าง ๆ
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         levelText.text = "Lv: " + level;  // อัปเดตข้อความของ TextMeshPro เพื่อแสดงเลเวลใหม่
-        healthBar.value = healthBar.maxValue;  // ตั้งค่าให้เต็มหลอดพลังชีวิต
         hungerBar.value = hungerBar.maxValue;  // ตั้งค่าให้เต็มหลอดความหิว
     }
 
