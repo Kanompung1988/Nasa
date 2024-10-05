@@ -5,8 +5,7 @@ using TMPro;  // นำเข้า TextMeshPro
 public class Character : MonoBehaviour
 {
     public int level = 1;
-    public Image characterImage;  // ใช้ Image Component แทน GameObject เพื่อแสดงผล Sprite
-    public Sprite sprite1, sprite2, sprite3, sprite4;  // สร้าง Sprite สำหรับแต่ละเฟส
+    public GameObject characterImage;  // อ้างอิงถึงตัวละครหลักที่มีลูกย่อย
     public TextMeshProUGUI levelText;  // ใช้ TextMeshPro แทน Text ปกติ
     public Slider healthBar, hungerBar;
 
@@ -20,22 +19,28 @@ public class Character : MonoBehaviour
 
     void UpdateCharacter()
     {
-        // เปลี่ยน Sprite ตามเลเวล
+        // ปิดลูกของ Character Image ทั้งหมดก่อน
+        foreach (Transform child in characterImage.transform)
+        {
+            child.gameObject.SetActive(false);  // ปิดลูกย่อยทั้งหมดก่อน
+        }
+
+        // เปลี่ยน Sprite หรือ GameObject ตามเลเวล
         if (level < 15)
         {
-            characterImage.sprite = sprite1;  // ใช้ Sprite1 สำหรับเลเวล < 15
+            characterImage.transform.Find("1").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 1
         }
         else if (level < 30)
         {
-            characterImage.sprite = sprite2;  // ใช้ Sprite2 สำหรับเลเวล 15-29
+            characterImage.transform.Find("2").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 2
         }
         else if (level < 45)
         {
-            characterImage.sprite = sprite3;  // ใช้ Sprite3 สำหรับเลเวล 30-44
+            characterImage.transform.Find("3").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 3
         }
         else
         {
-            characterImage.sprite = sprite4;  // ใช้ Sprite4 สำหรับเลเวล >= 45
+            characterImage.transform.Find("4").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 4
         }
     }
 
