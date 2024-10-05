@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;  // นำเข้า TextMeshPro
 
 public class Character : MonoBehaviour
 {
     public int level = 1;
     public Image characterImage;  // อ้างอิงถึงตัวละครที่จะแสดงใน UI
     public Sprite eggSprite, childSprite, teenSprite, adultSprite;  // Sprite แต่ละเฟส
-    public Text levelText;
+    public TextMeshProUGUI levelText;  // ใช้ TextMeshPro แทน Text ปกติ
     public Slider healthBar, hungerBar;
-    public GameObject dialogBox;  // Dialog box ที่จะใช้เมื่อคลิกตัวละคร
-    public Text dialogText;
+
+    public DialogManager dialogManager;  // อ้างอิงถึง DialogManager
 
     void Start()
     {
@@ -47,27 +48,14 @@ public class Character : MonoBehaviour
 
     void UpdateUI()
     {
-        levelText.text = "Level: " + level;
-        healthBar.value = healthBar.maxValue;  // ตั้งค่าให้เต็มหลอด (คุณสามารถเปลี่ยนให้มีการลดลงตามเกมเพลย์)
+        levelText.text = "Level: " + level;  // แสดงระดับเลเวลด้วย TextMeshPro
+        healthBar.value = healthBar.maxValue;  // ตั้งค่าให้เต็มหลอด
         hungerBar.value = hungerBar.maxValue;
     }
 
     void OnMouseDown()
     {
-        ShowDialog("Hello! Let's talk.");
-    }
-
-    void ShowDialog(string message)
-    {
-        dialogBox.SetActive(true);
-        dialogText.text = message;
-
-        // ซ่อน Dialog หลังจากเวลาผ่านไป
-        Invoke("HideDialog", 3f);
-    }
-
-    void HideDialog()
-    {
-        dialogBox.SetActive(false);
+        // เรียกใช้ DialogManager เพื่อแสดงข้อความเมื่อคลิกที่ตัวละคร
+        dialogManager.ShowDialogForDuration("Hello! Let's talk.", 3f);
     }
 }
