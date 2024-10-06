@@ -33,5 +33,5 @@ A virtual pet program called Space-Hero Companion was created especially for ast
 ### Utilized tools and technologies
 Unity game engine; C# programming language for scripting; real-time health data analysis; multilingual support; and virtual surroundings that can be customized
 
----
-> By protecting the emotional and physical well-being of space travelers, this initiative shows a creative way to deal with the particular difficulties of extended space missions, which could have a big impact on space exploration in the future.
+### Bottom line
+By protecting the emotional and physical well-being of space travelers, this initiative shows a creative way to deal with the particular difficulties of extended space missions, which could have a big impact on space exploration in the future.
