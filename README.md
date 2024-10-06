@@ -42,4 +42,5 @@ By protecting the emotional and physical well-being of space travelers, this ini
 
 ### Other Links
 [Competition's Website](https://www.spaceappschallenge.org/)
+
 [Our Team's Page](https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/phmmaaeaaesuuekhrab/)
