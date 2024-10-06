@@ -4,6 +4,7 @@ using TMPro;  // นำเข้า TextMeshPro
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] private GameObject[] _charactorImage;
     public int level = 1;
     public GameObject characterImage;  // อ้างอิงถึงตัวละครหลักที่มีลูกย่อย
     public TextMeshProUGUI levelText;  // ใช้ TextMeshPro แทน Text ปกติ
@@ -28,19 +29,19 @@ public class Character : MonoBehaviour
         // เปลี่ยน Sprite หรือ GameObject ตามเลเวล
         if (level < 15)
         {
-            characterImage.transform.Find("1").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 1
+            _charactorImage[0].SetActive(true);
         }
         else if (level < 30)
         {
-            characterImage.transform.Find("2").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 2
+            _charactorImage[1].SetActive(true);
         }
         else if (level < 45)
         {
-            characterImage.transform.Find("3").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 3
+            _charactorImage[2].SetActive(true);
         }
         else
         {
-            characterImage.transform.Find("4").gameObject.SetActive(true);  // เปิดใช้งานลูกที่ 4
+            _charactorImage[3].SetActive(true);
         }
     }
 
