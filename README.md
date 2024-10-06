@@ -5,6 +5,7 @@
 A virtual companion app called "Space-Hero Companion" was created to help astronauts on space missions. By offering an interactive and adaptable companion, it tackles the psychological and physical difficulties astronauts encounter, including stress and loneliness. By enabling astronauts to care for the virtual companion, the app lessens loneliness and fosters mental health. To further guarantee astronauts' long-term performance and safety, it also provides individualized health recommendations and tracks their health data in real-time. This project is significant because it integrates mental health support, entertainment, and health data analysis, creating a comprehensive tool for enhancing astronauts' general well-being in the taxing space environment. It improves mission success and the sustainability of long-term space exploration by attending to both physical and mental health.
 ## Project Demo (7 Slide Presentation)
 [Google Drive](https://drive.google.com/file/d/1zE8VqYhfHZ3-SxWcURT3hv16bZl2aY0J/view?usp=sharing)
+
 [View in this repository](resource/Space-Hero-Companion.pdf)
 ## Project Details
 ### What it does
