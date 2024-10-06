@@ -60,7 +60,10 @@ public class Character : MonoBehaviour
     void OnMouseDown()
     {
         // เรียกใช้ Dia   logManager เพื่อแสดงข้อความเมื่อคลิกที่ตัวละคร
-        dialogManager.ShowDialogForDuration("Hello! Let's talk.", 3f);
+        string[] textArray = { "Hi Let's Talk!", "How are you my Hero", "Please play with me", "Feed me please ;3" };
+        int randomTextIndex = Random.Range(0, textArray.Length);
+        string randomText = textArray[randomTextIndex];
+        dialogManager.ShowDialogForDuration(randomText, 3f);
         GainLevel(1);  // เมื่อคลิกให้เพิ่มเลเวล 1
     }
 }
