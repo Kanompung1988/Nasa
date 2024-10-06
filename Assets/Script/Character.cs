@@ -59,7 +59,7 @@ public class Character : MonoBehaviour
 
     void OnMouseDown()
     {
-        // เรียกใช้ DialogManager เพื่อแสดงข้อความเมื่อคลิกที่ตัวละคร
+        // เรียกใช้ Dia   logManager เพื่อแสดงข้อความเมื่อคลิกที่ตัวละคร
         dialogManager.ShowDialogForDuration("Hello! Let's talk.", 3f);
         GainLevel(1);  // เมื่อคลิกให้เพิ่มเลเวล 1
     }
