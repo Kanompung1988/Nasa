@@ -37,3 +37,9 @@ Unity game engine; C# programming language for scripting; real-time health data 
 
 ### Bottom line
 By protecting the emotional and physical well-being of space travelers, this initiative shows a creative way to deal with the particular difficulties of extended space missions, which could have a big impact on space exploration in the future.
+
+---
+
+### Other Links
+[Competition's Website](https://www.spaceappschallenge.org/)
+[Our Team's Page](https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/phmmaaeaaesuuekhrab/)
